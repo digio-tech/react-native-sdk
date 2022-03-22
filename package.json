@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "publishConfig": {
-    "registry" : "https://npm.pkg.github.com/@digio/digiorncomponent"
+    "registry" : "https://npm.pkg.github.com/@madhavrathore"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
