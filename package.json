@@ -1,0 +1,23 @@
+{
+  "name": "@digio/digiorncomponent",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "peerDependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-native": "^0.63.4",
+    "react-native-webview": "^11.0.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "digio",
+    "ekyc",
+    "enach"
+  ],
+  "author": "digio.in",
+  "license": "ISC"
+}
