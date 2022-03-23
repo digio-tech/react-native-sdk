@@ -1,1 +1,1 @@
-# reactNativaSDK
+# react-native-digio-sdk

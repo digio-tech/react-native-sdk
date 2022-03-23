@@ -1,6 +1,6 @@
 {
   "name": "react-native-digio-sdk",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "index.js",
   "peerDependencies": {
@@ -10,7 +10,6 @@
     "react-native": "0.64.3",
     "react-native-webview": "11.17.2"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
