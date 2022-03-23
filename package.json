@@ -3,9 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "publishConfig": {
-    "registry" : "https://npm.pkg.github.com/@madhavrathore"
-  },
   "peerDependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -22,5 +19,13 @@
     "enach"
   ],
   "author": "digio.in",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/madhavrathore/react-native-sdk.git"
+  },
+  "bugs": {
+    "url": "https://github.com/madhavrathore/react-native-sdk/issues"
+  },
+  "homepage": "https://github.com/madhavrathore/react-native-sdk#readme"
 }
