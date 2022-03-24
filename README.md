@@ -1,1 +1,1 @@
-# digio-react-rn
+# digio-sdk-rn
