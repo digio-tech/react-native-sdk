@@ -97,6 +97,7 @@ const digioService = {
             }
         }
     },
+
     generateUrl: function (base_url, base_suffix, doc_id, txn_id, identifier, token_id, extendedConfig) {
         var url = base_url + base_suffix;
         url += "/" + doc_id;
@@ -152,7 +153,9 @@ class DigioRNComponent extends Component {
     constructor(props) {
         super(props);
         
-        this.state = { showWebView: false };
+        this.state = { 
+            showWebView: false
+        }
         this.webview = null;
         this.digioUrl = null;
         this.version= CONSTANTS.VERSION;
@@ -173,7 +176,6 @@ class DigioRNComponent extends Component {
         this.iFrameObj= null;
         this.theme= {};
         this.loading=null;
-        this.inflate(this.props.options);
         this.reset();
     }
 
@@ -249,6 +251,7 @@ class DigioRNComponent extends Component {
                 this.otherParams[param.substring(3, param.length)] = t[param];
             }
         }
+        this.submit(this.props.digioDocumentId, this.props.identifier, this.props.digioToken);
     }
 
     getLoadingHtml() {
@@ -276,30 +279,13 @@ class DigioRNComponent extends Component {
         }
     }
 
-    submit  (ids, identifier, token_id) {
-        try {
-            digioService.validateDocumentId(ids);
-            digioService.validateIdentifier(identifier);
-
-            if (Array.isArray(ids)) {
-                this.digioUrl =  this.esign(ids, identifier, token_id);
-            }
-            else if (typeof ids === "string" && ids.slice(0, 3) === 'ENA' && ids.slice(ids.length - 2, ids.length) === 'AP') {
-                this.digioUrl  = this.enachApiSign(ids, identifier, token_id);
-            }
-            else {
-                this.digioUrl = this.esign(ids, identifier, token_id);
-            }
-            console.log(this.digioUrl);
-            this.setState({showWebView: true});
-        }
-        catch (err) {
-            console.error(err);
-        }
+    componentDidMount = () =>{
+        this.inflate(this.props.options)
     }
 
     render() {
-        if (this.state.showWebView) {
+       if (this.state.showWebView) {
+           debugger;
             return (
                 <View style={{
                     flex: 1
@@ -307,7 +293,7 @@ class DigioRNComponent extends Component {
                     {this.state.showWebView && this.renderContent()}
                 </View>
             );
-        }
+       }
         return (<View></View>)
     }
 
@@ -334,9 +320,8 @@ class DigioRNComponent extends Component {
     }
 
     onLoad() {
-
     }
-
+    
     onMessage(event) {
         let data = event.nativeEvent.data;
         console.log(data);
@@ -449,12 +434,36 @@ class DigioRNComponent extends Component {
         const resObj = { "digio_doc_id": this.documentId, "error_code": "CANCELLED", "message": "Signing cancelled" };
         this.props.onCancel(resObj);
     }
+
+    submit (ids, identifier, token_id) {
+        try {
+            digioService.validateDocumentId(ids);
+            digioService.validateIdentifier(identifier);
+
+            if (Array.isArray(ids)) {
+                this.digioUrl =  this.esign(ids, identifier, token_id);
+            }
+            else if (typeof ids === "string" && ids.slice(0, 3) === 'ENA' && ids.slice(ids.length - 2, ids.length) === 'AP') {
+                this.digioUrl  = this.enachApiSign(ids, identifier, token_id);
+            }
+            else {
+                this.digioUrl = this.esign(ids, identifier, token_id);
+            }
+            this.setState({showWebView : !this.state.showWebView});
+        }
+        catch (err) {
+            console.error(err);
+        }
+    }
 }
 
 DigioRNComponent.propTypes = {
     onSuccess: PropTypes.func,
     onCancel: PropTypes.func,
-    options: PropTypes.object
+    options: PropTypes.object,
+    digioToken: PropTypes.string,
+    digioDocumentId: PropTypes.string,
+    identifier: PropTypes.string
 }
 
 export {DigioRNComponent};
