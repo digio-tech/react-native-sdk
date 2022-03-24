@@ -1,1 +1,1 @@
-# react-native-digio-sdk
+# digio-react-rn

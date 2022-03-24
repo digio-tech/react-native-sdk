@@ -1,6 +1,6 @@
 {
-  "name": "react-native-digio-sdk",
-  "version": "1.0.2",
+  "name": "digio-sdk-rn",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "peerDependencies": {
@@ -22,10 +22,10 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/madhavrathore/react-native-sdk.git"
+    "url": "git+https://github.com/digio-tech/react-native-sdk.git"
   },
   "bugs": {
-    "url": "https://github.com/madhavrathore/react-native-sdk/issues"
+    "url": "https://github.com/digio-tech/react-native-sdk/issues"
   },
-  "homepage": "https://github.com/madhavrathore/react-native-sdk#readme"
+  "homepage": "https://github.com/digio-tech/react-native-sdk#readme"
 }
