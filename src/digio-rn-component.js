@@ -339,7 +339,7 @@ class DigioRNComponent extends Component {
             
             this.setState({ showWebView: false });
         } else {
-            this.onCancel();
+            this.props.onCancel();
         }
     }
 
